@@ -1,6 +1,7 @@
 import { View, Image, Animated, Dimensions, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { DeleteButton } from '../atoms/Buttons';
+import { Check, X } from 'lucide-react-native';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -35,7 +36,7 @@ export function SwipeCard({ imageUri, style, swipeDirection, showFeedback }: Swi
       {swipeDirection === 'right' && !showFeedback && (
         <View className="absolute top-12 right-12" style={{ transform: [{ rotate: '12deg' }] }}>
           <View className="w-20 h-20 rounded-full bg-green-500 border-4 border-white justify-center items-center shadow-xl">
-            <Text className="text-5xl font-bold text-white">✓</Text>
+            <Check color="white" size={48} strokeWidth={3} />
           </View>
         </View>
       )}
@@ -43,7 +44,7 @@ export function SwipeCard({ imageUri, style, swipeDirection, showFeedback }: Swi
       {swipeDirection === 'left' && !showFeedback && (
         <View className="absolute top-12 left-12" style={{ transform: [{ rotate: '-12deg' }] }}>
           <View className="w-20 h-20 rounded-full bg-red-500 border-4 border-white justify-center items-center shadow-xl">
-            <Text className="text-5xl font-bold text-white">✗</Text>
+            <X color="white" size={48} strokeWidth={3} />
           </View>
         </View>
       )}

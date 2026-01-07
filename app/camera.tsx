@@ -83,33 +83,33 @@ export default function CameraScreen() {
   }
 
   return (
-    <CameraView ref={cameraRef} style={{ flex: 1 }} facing={facing}>
-      <View style={{ position: 'absolute', top: 50, right: 20 }}>
-        <TouchableOpacity
-          onPress={() => router.push('/gallery')}
-          className="bg-purple-600 px-6 py-3 rounded-full"
-        >
-          <Text className="text-white font-bold">Ver Galería</Text>
-        </TouchableOpacity>
-      </View>
+    <View className="flex-1 bg-black">
+      <CameraView ref={cameraRef} style={{ flex: 1 }} facing={facing}>
+        <View className="absolute top-12 right-5 z-50">
+          <TouchableOpacity
+            onPress={() => router.push('/gallery')}
+            className="bg-purple-600 px-6 py-3 rounded-full"
+          >
+            <Text className="text-white font-bold">Ver Galería</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={{ flex: 1, justifyContent: 'flex-end', paddingBottom: 40 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', paddingHorizontal: 32 }}>
-          <View style={{ width: 64 }} />
+        <View className="absolute bottom-10 left-0 right-0 flex-row justify-around items-center px-8">
+          <View className="w-16" />
 
           <TouchableOpacity
             onPress={takePicture}
-            style={{ width: 80, height: 80, backgroundColor: 'white', borderRadius: 40, borderWidth: 4, borderColor: 'rgba(255,255,255,0.5)' }}
+            className="w-20 h-20 bg-white rounded-full border-4 border-white/50"
           />
 
           <TouchableOpacity
             onPress={toggleCameraFacing}
-            style={{ width: 64, height: 64, backgroundColor: 'rgba(255,255,255,0.3)', borderRadius: 12, justifyContent: 'center', alignItems: 'center' }}
+            className="w-16 h-16 bg-white/30 rounded-xl justify-center items-center"
           >
             <RefreshCw color="white" size={32} />
           </TouchableOpacity>
         </View>
-      </View>
-    </CameraView>
+      </CameraView>
+    </View>
   );
 }

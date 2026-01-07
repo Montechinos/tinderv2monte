@@ -7,6 +7,7 @@ import { useGalleryStore } from '@/lib/store/galleryStore';
 import { useSwipeLogic } from '@/lib/ui/useSwipeLogic';
 import { SwipeCard } from '@/components/molecules/Cards';
 import { FeedbackOverlay, EmptyState } from '@/components/organisms/Views';
+import { Camera } from 'lucide-react-native';
 
 export default function SwipeGalleryApp() {
   const router = useRouter();
@@ -73,7 +74,7 @@ export default function SwipeGalleryApp() {
 
       {photos.length === 0 ? (
         <>
-          <EmptyState message="No hay fotos. Toma una foto primero" icon="📸" />
+          <EmptyState message="No hay fotos. Toma una foto primero" icon={<Camera color="white" size={80} />} />
           <View className="items-center mt-8">
             <TouchableOpacity
               onPress={() => router.push('/camera')}
